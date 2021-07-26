@@ -309,6 +309,11 @@ class Radial extends Pie {
         endAngle = endAngle - 0.01
       }
 
+      // hard fix
+      if (Math.round(parseFloat(this.totalAngle * dataValue)) === 0) {
+        endAngle = startAngle
+      }
+
       const prevFullAngle = Math.abs(prevEndAngle) + Math.abs(prevStartAngle)
       if (prevFullAngle >= 360) {
         prevEndAngle = prevEndAngle - 0.01
